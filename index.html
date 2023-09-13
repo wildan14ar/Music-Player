@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="player.png">
+</head>
+
+<body>
+    <header>
+        <h4><span class="material-icons">graphic_eq</span> Music Player</h4>
+        <h4>Copyright &copy; 2022. WILDAN ABDURRASYID</h4>
+    </header>
+    <div class="playlist">
+        <div class="drop-area" id="dropArea">
+            <h3>Drag and Drop Music</h3>
+            <p>Drop your music files here</p>
+            <h4>or</h4>
+            <input type="file" accept="audio/mp3" multiple onchange="handleFiles(files)" style="color: transparent; margin-right: -160px;">     
+        </div>
+        <div>
+            <ul id="music"></ul>
+        </div>
+    </div>
+
+    <div class="player">
+        <audio id="audioPlayer" crossorigin="anonymous"></audio>
+        <div class="title">
+            <img src="player.PNG" alt="" style="width: auto; height: 50px;">
+            <div>
+                <h4 id="title" style="margin: 2px;">Title</h4>
+                <p>Deskipsi</p>
+            </div>
+        </div>
+        <div class="main">
+            <div class="control">
+                <button onclick="repeat()" class="btn-icon" data-repeat>
+                    <span class="material-icons repeat">repeat</span>
+                    <span class="material-icons no-repeat" style="display: none;">repeat_one</span>
+                </button>
+                <button onclick="fle('prev')"><span class="material-icons">skip_previous</span></button>
+                <button onclick="playPause()">
+                    <span class="material-icons play">play_arrow</span>
+                    <span class="material-icons pause" style="display: none;">pause</span>
+                </button>
+                <button onclick="fle('next')"><span class="material-icons">skip_next</span></button>
+                <button class="btn-icon shuffle" onclick="shuffle()">
+                    <span class="material-icons">shuffle</span>
+                </button>
+            </div>
+            <div>
+                <span class="current-time" data-running-time>0:00</span>
+                <input type="range" min="1" max="100" value="0" onchange="seekTo()" class="seek_slider"
+                    style="width: 350px;">
+                <span class="total-duration" data-duration>1:00</span>
+            </div>
+        </div>
+        <div class="volume">
+            <button class="btn-icon" onclick="muteVolume()" data-volume-btn style="padding: 4px; border-radius: 50%;">
+                <span class="material-icons">volume_up</span>
+            </button>
+
+            <div class="range-wrapper volume-range">
+                <input type="range" style="width: 100px;" onchange="changeVolume()" step="0.05" max="1" value="0.3"
+                    data-range data-volume>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

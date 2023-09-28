@@ -4,7 +4,7 @@ const playlist = document.getElementById('music');
 const audioPlayer = document.getElementById('audioPlayer');
 let updateTimer = setInterval(seekUpdate, 500)
 let currentSongIndex = 0;
-let songs = [{ name: "a", url: '../../a.mp3' }, { name: "a", url: '../../a.mp3' }];
+let songs = [];
 
 // Function to handle the drag and drop event
 function handleDrop(event) {
